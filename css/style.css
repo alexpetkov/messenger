@@ -1,0 +1,269 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?2o8468');
+	src:url('../fonts/icomoon.eot?2o8468#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?2o8468') format('truetype'),
+		url('../fonts/icomoon.woff?2o8468') format('woff'),
+		url('../fonts/icomoon.svg?2o8468#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-envelop:before {
+	content: "\e802";
+}
+.icon-smile:before {
+	content: "\e900";
+}
+
+body {
+padding-top: 120px;
+}
+
+a {
+cursor: pointer;
+outline: none;
+}
+
+.animate-if.ng-enter {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+}
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+
+.btn-login.disabled, .btn-login[disabled]{
+cursor: no-drop !important;
+}
+
+.btn[disabled], .btn.disabled, .btn-login.disabled, .btn-signup.disabled, .btn-login[disabled], .btn-signup[disabled], fieldset[disabled] .btn-login, fieldset[disabled] .btn-signup {
+    box-shadow: none;
+    cursor: no-drop !important;
+    opacity: 0.65;
+    pointer-events: none ;
+}
+
+#sub_menu  {
+list-style-type: none;
+padding-left: 0px;
+}
+
+#sub_menu li {
+margin-bottom: 10px;
+}
+
+#sub_menu li a{
+background-color: #ffc522;
+    border-color: #ffc522;
+    color: #1a2b45;
+	display: block;
+	border-radius: 3px;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 5px 10px 5px 10px;
+}
+
+#sub_menu li a:hover{
+background-color: #59E1FF;
+text-decoration: none;
+}
+
+select#chooseMethod {
+font-size: 16px;
+height: 40px;
+font-weight: bold;
+}
+
+#messageForm label {
+font-size: 16px;
+color: #444;
+}
+
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#upldFileDesc {
+position: relative;
+top: 10px;
+}
+
+.btn-submit {
+font-size: 16px;
+}
+
+.negativeCounter {
+display: block;
+width: 100%;
+text-align: right;
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(left,  #ffffff 0%, #eeeeee 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  #ffffff 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  #ffffff 0%,#eeeeee 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  #ffffff 0%,#eeeeee 100%); /* IE10+ */
+background: linear-gradient(to right,  #ffffff 0%,#eeeeee 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 */
+
+}
+
+div.formError {
+color: #e9ac00;
+}
+
+#msgStatus span{
+font-size: 160px;
+display: block;
+text-align:center;
+color: #00D1FF;
+}
+
+a.otherMsg {
+display: block;
+text-align:center;
+}
+
+.modal-content {
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 0px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    outline: 0 none;
+    position: relative;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e5e5;
+    min-height: 16.4286px;
+    padding: 10px;
+	background-color: #002345;
+}
+
+.modal-body {
+    padding: 15px;
+    position: relative;
+	background-color: #fff;
+	color: #555;
+} 
+
+.modal-title {
+color: #fff;
+}
+
+select.input-sm, input.input-sm {
+padding-right: 25px;
+font-size: 14px;
+height: 40px;
+}
+
+table#miyazaki {
+margin-top: 20px;
+}
+
+.dataTables_info {
+margin-top: 20px;
+}
+
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #002345;
+    border-color: #002345;
+    color: #ffffff;
+    cursor: default;
+    z-index: 2;
+}
+
+.pagination > li > a, .pagination > li > span {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    color: #555;
+    float: left;
+    line-height: 1.42857;
+    margin-left: -1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+}
+
+.dataTables_paginate {
+text-align: right;
+padding-right: 20px;
+}
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: absolute !important;
+
+}
+
+
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 767px) {
+	
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
+}

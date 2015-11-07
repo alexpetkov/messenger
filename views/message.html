@@ -1,0 +1,82 @@
+<form id="messageForm" name="messageForm" ng-submit="submitForm(messageForm.$valid)" novalidate>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+			  <label for="chooseMethod" class="control-label">Choose delivery method:</label>
+			  <div class="">
+				 <select class="form-control" id="chooseMethod" ng-model="delivery.methood" required ng-change="changeme()" name="chooseMethod">
+					<option ng-option value="WhatsappPref" >Whatsapp preferred</option>
+					<option ng-option value="Whatsapp" >Whatsapp only</option>
+					<option ng-option value="SMS" >SMS only</option>
+					<option ng-option value="SMSPref" >SMS preferred</option>
+				 </select>
+			  </div>
+		   </div>
+		
+		</div>
+		<div class="col-md-6"></div>
+	</div>
+   
+   <!-- Destination mobile numbers -->
+   <div class="form-group animate-if" ng-if="delivery.methood == 'WhatsappPref' || delivery.methood == 'Whatsapp' || delivery.methood == 'SMS' || delivery.methood == 'SMSPref'" >
+      <label for="destinationNumbers" class="control-label">Destination mobile numbers:</label>
+      <div class="">
+         <textarea placeholder="Please fill the destination phone numbers here. One number per line. Only digits (35688888888). You can upload .txt or .csv file." class="form-control"  id="destinationNumbers" rows="3" ng-model="delivery.dest" required name="destinationNumbers" ng-pattern="/^[0-9\n]+$/"></textarea>
+         <div class="fileUpload btn btn-info">
+            <span>UPLOAD</span>
+            <input ng-model="csv"  onchange="angular.element(this).scope().fileChanged()" type="file"  id="fileInput" class="upload"/> 
+         </div> <span id="upldFileDesc">The file must contain comma separated numbers only.</span>
+         <div ng-messages="messageForm.destinationNumbers.$error">
+            <div ng-message="pattern" class="formError">Only digits and new lines</div>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-6 animate-if" ng-if="delivery.methood == 'WhatsappPref' || delivery.methood == 'Whatsapp' || delivery.methood == 'SMSPref'">
+         <!-- Sender ID if sent via Whatsapp  -->
+         <div class="form-group animate-if" ng-if="delivery.methood == 'WhatsappPref' || delivery.methood == 'Whatsapp' || delivery.methood == 'SMSPref'">
+            <label for="senderWhatsapp" class="control-label">Sender ID if sent via Whatsapp</label>
+            <input type="text" class="form-control" name="senderWhatsapp" id="senderWhatsapp" placeholder="" required ng-model="delivery.senderwhatsapp" ng-trim="false" maxlength="20" ng-pattern="/^[a-zA-Z0-9]+$/">
+            <span class="negativeCounter">{{20 - delivery.senderwhatsapp.length}} left</span>
+            <div ng-messages="messageForm.senderWhatsapp.$error">
+               <div ng-message="pattern" class="formError">Only alphanumeric symbols. From A to Z, and 0 to 9.</div>
+            </div>
+         </div>
+         <!-- WhatsApp message content  -->
+         <div class="form-group animate-if" ng-if="delivery.methood == 'WhatsappPref' || delivery.methood == 'Whatsapp' || delivery.methood == 'SMSPref'">
+            <label for="whatsappContent" class="control-label">WhatsApp message content:</label>
+            <div class="">
+               <textarea class="form-control" name="whatsappContent" id="whatsappContent" rows="3" ng-model="delivery.whatsappcontent" ng-trim="false" maxlength="256" required></textarea>
+               <span class="negativeCounter" class="formError">{{256 - delivery.whatsappcontent.length}} left</span>	
+            </div>
+         </div>
+      </div>
+      <div class="col-md-6 animate-if" ng-if="delivery.methood == 'SMS' || delivery.methood == 'SMSPref' || delivery.methood == 'WhatsappPref'">
+         <!-- Sender ID from SMS  -->
+         <div class="form-group animate-if" ng-if="delivery.methood == 'SMS' || delivery.methood == 'SMSPref' || delivery.methood == 'WhatsappPref'" >
+            <label for="senderSms" class="control-label">Sender ID from SMS</label>
+            <input type="text" class="form-control" name="senderSms" id="senderSms" placeholder="" required ng-model="delivery.sendersms" ng-trim="false" maxlength="10" ng-pattern="/^[a-zA-Z0-9]+$/">
+            <span class="negativeCounter">{{10 - delivery.sendersms.length}} left</span>
+            <div ng-messages="messageForm.senderSms.$error">
+               <div ng-message="pattern" class="formError">Only alphanumeric symbols. From A to Z, and 0 to 9.</div>
+            </div>
+         </div>
+         <!-- SMS message content  -->
+         <div class="form-group animate-if" ng-if="delivery.methood == 'SMS' || delivery.methood == 'SMSPref' || delivery.methood == 'WhatsappPref'">
+            <label for="smsContent" class="control-label">SMS message content:</label>
+            <div class="">
+               <textarea class="form-control" name="smsContent" id="smsContent" rows="3" ng-model="delivery.smscontent" ng-trim="false" maxlength="160" required></textarea>	
+               <span class="negativeCounter">{{160 - delivery.smscontent.length}} left</span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="form-group">
+      <a href="#/status" type="submit" class="btn btn-login btn-submit" ng-disabled="messageForm.$invalid" ng-click="insertdata()">Send</a>
+      <div ng-messages="messageForm.$error">
+         <div ng-message="required" class="formError">* Please fill all fields to activate "Send" button</div>
+         <div ng-message="pattern" class="formError"> * Error - check the destination number field</div>
+      </div>
+   </div>
+</form>
